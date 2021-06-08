@@ -12,9 +12,21 @@
   <body>
       <div id="root">
           <div class="movies">
-              <ul>
-                  <li v-for="movie in movies">{{movie}} s</li>
+              <div id="searchbar">
+                  <input type="text" name="search" id="search" v-model="ricerca">
+                  <button @click="cerca()">Cerca</button>
+              </div>
+              <div v-if="movies === null">
+                <h3>nessun titolo</h3>
+            </div>
+              <div v-for="movie in movies" v-else>
+                <ul>
+                    <li>{{movie.title}}</li>
+                    <li>{{movie.original_title}}</li>
+                    <li>{{movie.original_language}}</li>
+                    <li>{{movie.vote_average}}</li>
               </ul>
+              </div>
           </div>
       </div>
     <!-- JavaScript -->
