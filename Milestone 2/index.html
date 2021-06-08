@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Boolfix</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  </head>
+  <body>
+      <div id="root">
+          <div class="movies">
+              <div id="searchbar">
+                  <input type="text" name="search" id="search" v-model="ricerca">
+                  <button @click="cerca()">Cerca</button>
+              </div>
+              <div v-if="movies === null">
+                <h3>nessun titolo</h3>
+            </div>
+              <div v-for="movie in movies" v-else>
+                <ul>
+                    <li>{{movie.title}}</li>
+                    <li v-if="movie.original_title !== movie.title">{{movie.original_title}}</li>
+                    <li>{{movie.original_language}}</li>
+                    <li v-if="movie.original_language === 'en'"><img width="40" src="https://www.countryflags.io/us/flat/64.png"></li>
+                    <li v-else><img width="40" :src="`https://www.countryflags.io/${movie.original_language}/flat/64.png`"></li>
+                    <li>{{movie.vote_average}}</li>
+              </ul>
+              </div>
+          </div>
+      </div>
+    <!-- JavaScript -->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.12/dist/vue.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"></script>
+    <script src="./assets/js/main.js"></script>
+  </body>
+</html>
