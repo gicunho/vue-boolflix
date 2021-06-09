@@ -1,0 +1,48 @@
+/* Common Classes */
+.copertina_mancante{
+    height: 480px;
+    width: 342px;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
+
+.media_info{
+    position: absolute;
+    top: 0;
+    height: 480px;
+    width: 342px;
+    color: white;
+    background-color: black;
+    visibility: hidden;
+}
+ul > li {
+    list-style-type: none;
+}
+
+/* Header rules */
+header {
+    background-color: black;
+}
+
+#logo {
+    color: red;
+    font-size: 2rem;
+}
+
+/* Main Content rules */
+main {
+    background-color: grey;
+    min-height: calc(100vh - 80px);
+}
+
+.poster img{
+    max-height: 480px;
+}
+
+.movie:hover .media_info{
+    visibility: visible;
+}
