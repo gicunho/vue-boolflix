@@ -1,0 +1,11 @@
+/* Common Classes */
+.copertina_mancante{
+    height: 480px;
+    width: 342px;
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    text-align: center;
+    text-transform: uppercase;
+    vertical-align: middle;
+}
