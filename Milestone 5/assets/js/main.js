@@ -38,7 +38,23 @@ const app = new Vue({
             });
             this.seriesUrl = `https://api.themoviedb.org/3/search/tv?api_key=2ad14df71d61543a5c0cbb44fb587a2c&query=${this.ricerca}`
             axios.get(this.seriesUrl).then(response =>{
-                this.series = response.data.results
+                this.series = response.data.results;
+                console.log(response.data.results);
+                this.series.forEach(el => {
+                    axios.get(`https://api.themoviedb.org/3/tv/${el.id}/credits?api_key=${this.api_key}`)
+                    .then(resp =>{
+                        console.log(el.id);
+                         for (let index = 0; index < 5; index++) {
+                            console.log(resp.data.cast[index].name);
+                            let cast = [...cast]
+                            cast =[... cast, resp.data.cast[index].name]
+                            console.log(cast);
+                            Vue.set(el, 'cast', resp.data.cast[index].name)
+                            //el.cast += `${resp.data.cast[index].name} `
+                        
+                    }
+                    })
+                });
                
             }).catch(er =>{
                 console.error(er);
